@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://trafficcontrol.com.ec"
+           xmlns:tns="http://trafficcontrol.com.ec"
+           elementFormDefault="unqualified"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           version="1.0">
+
+    <!-- Elementos principales de las operaciones -->
+    <xs:element name="consultaOrden" type="tns:consultaOrden"/>
+    <xs:element name="consultaOrdenResponse" type="tns:consultaOrdenResponse"/>
+    <xs:element name="pagoOrden" type="tns:pagoOrden"/>
+    <xs:element name="pagoOrdenResponse" type="tns:pagoOrdenResponse"/>
+    <xs:element name="reversoPago" type="tns:reversoPago"/>
+    <xs:element name="reversoPagoResponse" type="tns:reversoPagoResponse"/>
+
+    <!-- Tipos complejos para cada operación -->
+    <xs:complexType name="consultaOrden">
+        <xs:sequence>
+            <xs:element name="tipoidentificacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroidentificacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="tiposervicio" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoifi" type="xs:string" minOccurs="0"/>
+            <xs:element name="sucursal" type="xs:string" minOccurs="0"/>
+            <xs:element name="canaldepago" type="xs:string" minOccurs="0"/>
+            <xs:element name="provincia" type="xs:string" minOccurs="0"/>
+            <xs:element name="ordenpago" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="consultaOrdenResponse">
+        <xs:sequence>
+            <xs:element name="resultado" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pagoOrden">
+        <xs:sequence>
+            <xs:element name="tipoidentificacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="numeroidentificacion" type="xs:string" minOccurs="0"/>
+            <xs:element name="tiposervicio" type="xs:string" minOccurs="0"/>
+            <xs:element name="valor" type="xs:long"/>
+            <xs:element name="codigotransaccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoifi" type="xs:string" minOccurs="0"/>
+            <xs:element name="sucursal" type="xs:string" minOccurs="0"/>
+            <xs:element name="canaldepago" type="xs:string" minOccurs="0"/>
+            <xs:element name="provincia" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechahoratransaccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechahoracontabilizado" type="xs:string" minOccurs="0"/>
+            <xs:element name="ordenpago" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pagoOrdenResponse">
+        <xs:sequence>
+            <xs:element name="resultado" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="reversoPago">
+        <xs:sequence>
+            <xs:element name="codigotransaccion" type="xs:string" minOccurs="0"/>
+            <xs:element name="codigoifi" type="xs:string" minOccurs="0"/>
+            <xs:element name="sucursal" type="xs:string" minOccurs="0"/>
+            <xs:element name="canal" type="xs:string" minOccurs="0"/>
+            <xs:element name="provincia" type="xs:string" minOccurs="0"/>
+            <xs:element name="motivo" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechahorareverso" type="xs:string" minOccurs="0"/>
+            <xs:element name="fechahoracontabilizado" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="reversoPagoResponse">
+        <xs:sequence>
+            <xs:element name="resultado" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://trafficcontrol.com.ec" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="IfisWS" targetNamespace="http://trafficcontrol.com.ec">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://trafficcontrol.com.ec" elementFormDefault="unqualified" targetNamespace="http://trafficcontrol.com.ec" version="1.0">
+
+  <xs:element name="consultaOrden" type="tns:consultaOrden"/>
+
+  <xs:element name="consultaOrdenResponse" type="tns:consultaOrdenResponse"/>
+
+  <xs:element name="pagoOrden" type="tns:pagoOrden"/>
+
+  <xs:element name="pagoOrdenResponse" type="tns:pagoOrdenResponse"/>
+
+  <xs:element name="reversoPago" type="tns:reversoPago"/>
+
+  <xs:element name="reversoPagoResponse" type="tns:reversoPagoResponse"/>
+
+  <xs:complexType name="consultaOrden">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tipoidentificacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="numeroidentificacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="tiposervicio" type="xs:string"/>
+      <xs:element minOccurs="0" name="codigoifi" type="xs:string"/>
+      <xs:element minOccurs="0" name="sucursal" type="xs:string"/>
+      <xs:element minOccurs="0" name="canaldepago" type="xs:string"/>
+      <xs:element minOccurs="0" name="provincia" type="xs:string"/>
+      <xs:element minOccurs="0" name="ordenpago" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="consultaOrdenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="resultado" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pagoOrden">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tipoidentificacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="numeroidentificacion" type="xs:string"/>
+      <xs:element minOccurs="0" name="tiposervicio" type="xs:string"/>
+      <xs:element name="valor" type="xs:long"/>
+      <xs:element minOccurs="0" name="codigotransaccion" type="xs:string"/>
+      <xs:element minOccurs="0" name="codigoifi" type="xs:string"/>
+      <xs:element minOccurs="0" name="sucursal" type="xs:string"/>
+      <xs:element minOccurs="0" name="canaldepago" type="xs:string"/>
+      <xs:element minOccurs="0" name="provincia" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechahoratransaccion" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechahoracontabilizado" type="xs:string"/>
+      <xs:element minOccurs="0" name="ordenpago" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pagoOrdenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="resultado" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="reversoPago">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigotransaccion" type="xs:string"/>
+      <xs:element minOccurs="0" name="codigoifi" type="xs:string"/>
+      <xs:element minOccurs="0" name="sucursal" type="xs:string"/>
+      <xs:element minOccurs="0" name="canal" type="xs:string"/>
+      <xs:element minOccurs="0" name="provincia" type="xs:string"/>
+      <xs:element minOccurs="0" name="motivo" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechahorareverso" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechahoracontabilizado" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="reversoPagoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="resultado" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="pagoOrden">
+    <wsdl:part element="tns:pagoOrden" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reversoPago">
+    <wsdl:part element="tns:reversoPago" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pagoOrdenResponse">
+    <wsdl:part element="tns:pagoOrdenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaOrden">
+    <wsdl:part element="tns:consultaOrden" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reversoPagoResponse">
+    <wsdl:part element="tns:reversoPagoResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="consultaOrdenResponse">
+    <wsdl:part element="tns:consultaOrdenResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MetodosPort">
+    <wsdl:operation name="consultaOrden">
+      <wsdl:input message="tns:consultaOrden" name="consultaOrden">
+    </wsdl:input>
+      <wsdl:output message="tns:consultaOrdenResponse" name="consultaOrdenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pagoOrden">
+      <wsdl:input message="tns:pagoOrden" name="pagoOrden">
+    </wsdl:input>
+      <wsdl:output message="tns:pagoOrdenResponse" name="pagoOrdenResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reversoPago">
+      <wsdl:input message="tns:reversoPago" name="reversoPago">
+    </wsdl:input>
+      <wsdl:output message="tns:reversoPagoResponse" name="reversoPagoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IfisWSSoapBinding" type="tns:MetodosPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="consultaOrden">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="consultaOrden">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="consultaOrdenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pagoOrden">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pagoOrden">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pagoOrdenResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reversoPago">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="reversoPago">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="reversoPagoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IfisWS">
+    <wsdl:port binding="tns:IfisWSSoapBinding" name="MetodosPort">
+      <soap:address location="http://186.5.126.60:8081/ws-ifis/IfisWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
